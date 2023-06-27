@@ -1,0 +1,82 @@
+    /* "example.sol":26:133  contract Example {... */
+  mstore(0x40, 0x80)
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "example.sol":26:133  contract Example {... */
+      mstore(0x40, 0x80)
+      callvalue
+      dup1
+      iszero
+      tag_1
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_1:
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x54353f2f
+      eq
+      tag_3
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "example.sol":69:131  function example() public  {... */
+    tag_3:
+      tag_4
+      tag_5
+      jump	// in
+    tag_4:
+      stop
+    tag_5:
+        /* "example.sol":114:124  msg.sender */
+      caller
+        /* "example.sol":106:111  owner */
+      0x00
+      dup1
+        /* "example.sol":106:124  owner = msg.sender */
+      0x0100
+      exp
+      dup2
+      sload
+      dup2
+      0xffffffffffffffffffffffffffffffffffffffff
+      mul
+      not
+      and
+      swap1
+      dup4
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      mul
+      or
+      swap1
+      sstore
+      pop
+        /* "example.sol":69:131  function example() public  {... */
+      jump	// out
+
+    auxdata: 0xa264697066735822122047d549faf52ebeb1000f25cd5a7428634ef9d61a62eacc400edec1ed507bfcf464736f6c63430008130033
+}
